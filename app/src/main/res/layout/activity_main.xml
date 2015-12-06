@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gmobi.go2reach.sample.MainActivity" >
+
+    <Button
+        android:id="@+id/interstitialSample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Interstitial Ads Sample" />
+
+    <Button
+        android:id="@+id/bannerSample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Banner Ads Sample" />
+
+    <Button
+        android:id="@+id/nativeSample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Native Ads Sample" />
+ 
+</LinearLayout>

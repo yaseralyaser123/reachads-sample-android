@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#808080"
+    tools:context="com.gmobi.go2reach.sample.BannerActivity" >
+
+    <FrameLayout
+        android:id="@+id/topbanner"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/bottombanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true" >
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Welcome to Banner Sample"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/loadBottomBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="Load Bottom Banner" />
+
+</RelativeLayout>
