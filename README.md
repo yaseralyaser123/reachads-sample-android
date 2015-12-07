@@ -129,3 +129,20 @@ ad1.setOnLoadLisenter(new ICallback(){
 });
 ad1.load();
 ```
+
+### Proguard Config
+```
+-keep public class com.reach.* {
+    public protected *;
+}
+
+-keep public class com.reach.widget.* {
+    public protected *;
+}
+
+-keepclassmembers public class * extends com.reach.IService {
+    public <init>(...);
+}
+-keep public class * extends com.reach.IService
+
+```
