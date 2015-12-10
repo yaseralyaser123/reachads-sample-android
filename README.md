@@ -1,10 +1,21 @@
 ###Getting Started
 Add sdk jar file to the ***libs*** folder of your Android project. Make sure the following permissions are placed in your AndroidManifest.xml
 ```xml
+<!-- Basic -->
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+<!-- Check Network Connection -->
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+<!-- GPS -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+<!-- Get Device ID : IMEI -->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+<!-- Get Device ID : WIFI MAC -->
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 ```
 And add necessary activities and service 
