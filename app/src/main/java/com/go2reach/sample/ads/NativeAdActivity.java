@@ -68,6 +68,7 @@ public class NativeAdActivity extends ActionBarActivity {
 
 		
 		ad3 = adService.getNativeAd("native.ad3", 50, 50, 3, new String[]{IAdItem.VIDEO});
+		ad3.setAutoplayMode(true);
 		final ArrayList<Item> items = new ArrayList<Item>(); 
 		final ItemListAdapter adapter3 = new ItemListAdapter(this, items);
 		for (int i = 0; i < 50; i++){

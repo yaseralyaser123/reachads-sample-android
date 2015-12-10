@@ -20,5 +20,5 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
-    compile files('libs/go2reach.ads_3.2.jar')
+    compile files('libs/go2reach.ads_3.3.jar')
 }
