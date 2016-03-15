@@ -8,33 +8,152 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.gmobi.go2reach.sample.InterstitialActivity" >
 
-    <Button
-        android:id="@+id/btnDefault"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Default" />
 
-    <Button
-        android:id="@+id/btnCustom"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvIn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnDefault"
-        android:layout_marginTop="20dp"
-        android:text="Custom Size" />
+        android:layout_alignParentTop="true"
+        android:textColor="@color/button_unpress"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp"/>
 
-    <Button
-        android:id="@+id/btnLandscape"
+    <GridLayout
+        android:id="@+id/grid"
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnCustom"
-        android:layout_marginTop="20dp"
-        android:text="Landscape Only" />
+        android:columnCount="2"
 
-    <Button
-        android:id="@+id/btnFullScreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLandscape"
-        android:layout_marginTop="20dp"
-        android:text="Full Screen" />
+        >
+
+        <LinearLayout
+            android:id="@+id/btnDefault"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_intertitival"
+            >
+
+            <ImageView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_default"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:textColor="#ffffff"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="15dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="DEFAULT" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/btnCustom"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_intertitival">
+
+            <ImageView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/icon_custom"/>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:textColor="#ffffff"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="15dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="VIDEO ADS" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/btnLandscape"
+            android:orientation="vertical"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/button_intertitival">
+
+            <ImageView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_landscape"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:textColor="#ffffff"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="15dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="LANDSCAPE ONLY" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnFullScreen"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
+            android:background="@drawable/button_intertitival">
+
+            <ImageView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/icon_full"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:textColor="#ffffff"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="15dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="FULL SCREEN" />
+        </LinearLayout>
+
+    </GridLayout>
+
+
+
 </RelativeLayout>

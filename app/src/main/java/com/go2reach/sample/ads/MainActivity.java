@@ -1,54 +1,43 @@
 package com.go2reach.sample.ads;
 
-//import com.gmobi.go2reach.ITrackService;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.View;
-import android.widget.Button;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Window;
 
-public class MainActivity extends ActionBarActivity {
-	
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
-		setContentView(R.layout.activity_main);
-		Button btnBannerSample = (Button)findViewById(R.id.bannerSample);
-		btnBannerSample.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, BannerActivity.class);
-				MainActivity.this.startActivity(intent);
-			}
-		});
-		
-		Button btnInterstitialSample = (Button)findViewById(R.id.interstitialSample);
-		btnInterstitialSample.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, InterstitialActivity.class);
-				MainActivity.this.startActivity(intent);
-			}
-		});
+import com.go2reach.sample.R;
+import com.go2reach.sample.adapter.SectionsPagerAdapter;
 
-		Button btnNativeSample = (Button)findViewById(R.id.nativeSample);
-		btnNativeSample.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, NativeAdActivity.class);
-				MainActivity.this.startActivity(intent);
-			}
-		});
 
-	}
-	@Override
-	public void onBackPressed() {
-	    finish();
-	    System.exit(0);
-	}
+public class MainActivity extends AppCompatActivity {
+
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private TabLayout tabLayout;
+    private ViewPager mViewPager;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        tabLayout = (TabLayout) findViewById(R.id.main_tab);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.addTab(tabLayout.newTab().setText("Interstitial Ads"));
+        tabLayout.addTab(tabLayout.newTab().setText("Banner Ads"));
+        tabLayout.addTab(tabLayout.newTab().setText("Native Ads"));
+
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.setTabsFromPagerAdapter(mSectionsPagerAdapter);
+    }
 }

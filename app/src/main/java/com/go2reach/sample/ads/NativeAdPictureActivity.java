@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.go2reach.sample.R;
-import com.go2reach.sample.adapter.NativeAdAdapter;
+import com.go2reach.sample.adapter.NativeAdPictureAdapter;
 import com.reach.IAd;
 import com.reach.IAdItem;
 import com.reach.IAdService;
@@ -20,25 +20,24 @@ import com.reach.Services;
 
 import java.util.ArrayList;
 
-
-public class NativeAdActivity extends AppCompatActivity {
+public class NativeAdPictureActivity extends AppCompatActivity {
 	IAdService adService;
 	INativeAd ad;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_native_ad_item);
+		setContentView(R.layout.activity_native_ad_pic);
 		
 		adService = Services.get(IAdService.class, this);
 		
-		ad = adService.getNativeAd("native.ad.item", 400, 50, 3, new String[]{IAdItem.IMAGE});
-		final ArrayList<Item> items = new ArrayList<>();
-		final NativeAdAdapter adapter = new NativeAdAdapter(this, items);
+		ad = adService.getNativeAd("native.ad.pic", 300, 100, 3, new String[]{IAdItem.IMAGE});
+		final ArrayList<Item> items = new ArrayList<Item>();
+		final NativeAdPictureAdapter adapter = new NativeAdPictureAdapter(this, items);
 		for (int i = 0; i < 50; i++){
 			items.add(new Item(Item.TYPE_PRODUCT, new Product("Product name " + i, Math.round(Math.random() * 100))));
 		}
-		ListView lv = (ListView)this.findViewById(R.id.native_item);
+		ListView lv = (ListView)this.findViewById(R.id.native_pic);
 		lv.setAdapter(adapter);
 
 		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -46,7 +45,7 @@ public class NativeAdActivity extends AppCompatActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 									int position, long id) {
-				Toast.makeText(NativeAdActivity.this, "pos:" + position, Toast.LENGTH_LONG).show();
+				Toast.makeText(NativeAdPictureActivity.this, "pos:" + position, Toast.LENGTH_LONG).show();
 
 			}
 

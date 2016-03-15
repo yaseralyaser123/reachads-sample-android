@@ -6,8 +6,10 @@ android {
 
     defaultConfig {
         applicationId "com.go2reach.sample.ads"
-        minSdkVersion 8
-        targetSdkVersion 21
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 20
+        versionName "2.0"
     }
 
     buildTypes {
@@ -19,6 +21,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile files('libs/go2reach.ads_3.5.jar')
+    compile files('libs/go2reach.ads_3.6.jar')
+    compile 'com.android.support:design:23.1.1'
 }

@@ -1,81 +1,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.gmobi.go2reach.sample.NativeAdActivity" >
+    android:paddingTop="@dimen/activity_vertical_margin">
 
-    <RelativeLayout
-        android:id="@+id/containerVideo"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    <com.reach.widget.VideoPlayer 
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_centerVertical="true"
-        android:id="@+id/vpPlayer"
-        />
-        
-    <TextView
-        android:id="@+id/tvVideoTitle"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/vpPlayer"
-        android:text="" />
-    <Button
-        android:id="@+id/btnVideoCta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_below="@id/tvVideoTitle"
-        android:layout_toRightOf="@id/vpPlayer"
-        android:text="" />
-    
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        
-    <ImageView
-        android:id="@+id/ivNative"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true" />
-        
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/ivNative"
-        android:text="" />
-    
-    <Button
-        android:id="@+id/btnCta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:text="" />
+        android:orientation="horizontal"
+        >
 
-    </RelativeLayout>
-    <View android:background="#ff808080" android:layout_width="match_parent" android:layout_height="1dp"/>
-    <GridView
-        android:id="@+id/gvNative"
+        <ImageView
+            android:id="@+id/native_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_intertitival"
+            android:clickable="true"
+            android:src="@drawable/icon_native_ad" />
+
+        <ImageView
+            android:id="@+id/native_pic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_intertitival"
+            android:clickable="true"
+            android:src="@drawable/icon_native_ad_pic" />
+
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:numColumns="3" >
-    </GridView>
-<View android:background="#ff808080" android:layout_width="match_parent" android:layout_height="1dp"/>
-    
-	<ListView
-	    android:id="@+id/lvNative"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent" />
-    
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/native_item_video"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_intertitival"
+            android:clickable="true"
+            android:src="@drawable/icon_native_ad_video" />
+
+        <ImageView
+            android:id="@+id/native_pic_video"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_intertitival"
+            android:clickable="true"
+            android:src="@drawable/icon_native_ad_pic_video" />
+
+    </LinearLayout>
+
 </LinearLayout>

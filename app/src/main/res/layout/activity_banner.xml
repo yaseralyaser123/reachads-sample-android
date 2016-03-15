@@ -2,43 +2,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#808080"
     tools:context="com.gmobi.go2reach.sample.BannerActivity" >
 
-    <FrameLayout
-        android:id="@+id/topbanner"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
 
-    </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/bottombanner"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true" >
-    </FrameLayout>
+        android:layout_marginTop="25dp"
+        android:orientation="vertical">
+<!--
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reload ads every 60 seconds"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/button_unpress"/>
+-->
+        <FrameLayout
+            android:id="@+id/topbanner"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            >
+        </FrameLayout>
 
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Welcome to Banner Sample"
-        android:textSize="30sp" />
+    </LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_centerInParent="true">
 
     <Button
-        android:id="@+id/loadBottomBanner"
+        android:id="@+id/loadcenterVideoBanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/welcome"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
-        android:text="Load Bottom Banner" />
+        android:layout_gravity="center_horizontal"
+        android:text="Load Video Banner" />
+
+    <FrameLayout
+        android:id="@+id/centerbanner"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_height="60dp"
+        >
+<!--
+        <ImageView
+            android:id="@+id/bannerVideoImage"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.reach.widget.VideoPlayer
+
+            android:id="@+id/bannerVideo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+            -->
+
+    </FrameLayout>
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        >
+<!--
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/button_unpress"
+            android:gravity="center_horizontal"
+            android:text="Click button to reload Banner ads"/>
+-->
+        <Button
+            android:id="@+id/loadBottomBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Load Banner" />
+
+
+        <FrameLayout
+            android:id="@+id/bottombanner"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_height="50dp"
+            >
+        </FrameLayout>
+
+    </LinearLayout>
+
 
 </RelativeLayout>

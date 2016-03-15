@@ -1,80 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.go2reach.sample.ads"
-    android:versionCode="1"
-    android:versionName="1.0" >
-
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="21" />
+    package="com.go2reach.sample">
 
     <!-- Basic -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <!-- Check Network Connection -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <!-- GPS -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <!-- Get Device ID : IMEI -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
     <!-- Get Device ID : WIFI MAC -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:name=".ads.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <activity
-            android:name=".BannerActivity"
-            android:label="@string/title_activity_banner" >
-        </activity>
+            android:name=".ads.NativeAdActivity"
+            android:noHistory="true" />
+
         <activity
-            android:name=".InterstitialActivity"
-            android:label="@string/title_activity_interstitial" >
-        </activity>
+            android:name=".ads.NativeAdPictureActivity"
+            android:noHistory="true" />
+
         <activity
-            android:name=".NativeAdActivity"
-            android:label="@string/title_activity_native_ad" >
-        </activity>
-        
-        <!-- Ad Service -->
+            android:name=".ads.NativeAdPictureVideoActivity"
+            android:noHistory="true" />
+
+        <activity
+            android:name=".ads.NativeAdVideoActivity"
+            android:noHistory="true" />
+
         <activity
             android:name="com.reach.InterstitialAdActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.reach.VideoAdActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-
         <service android:name="com.reach.ActionService" />
 
         <receiver
             android:name="com.reach.ActionMonitor"
-            android:enabled="true" >
+            android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
@@ -88,10 +83,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        
+
         <meta-data
             android:name="reach.ads.key"
             android:value="56645f26eae39cbc7e8b85f3" />
+
+        <!--for debug only-->
         <meta-data
             android:name="reach.debug"
             android:value="true" />

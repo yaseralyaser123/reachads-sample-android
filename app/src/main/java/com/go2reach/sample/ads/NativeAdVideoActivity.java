@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.go2reach.sample.R;
-import com.go2reach.sample.adapter.NativeAdAdapter;
+import com.go2reach.sample.adapter.NativeAdVideoAdapter;
 import com.reach.IAd;
 import com.reach.IAdItem;
 import com.reach.IAdService;
@@ -20,8 +20,7 @@ import com.reach.Services;
 
 import java.util.ArrayList;
 
-
-public class NativeAdActivity extends AppCompatActivity {
+public class NativeAdVideoActivity extends AppCompatActivity {
 	IAdService adService;
 	INativeAd ad;
 
@@ -32,9 +31,9 @@ public class NativeAdActivity extends AppCompatActivity {
 		
 		adService = Services.get(IAdService.class, this);
 		
-		ad = adService.getNativeAd("native.ad.item", 400, 50, 3, new String[]{IAdItem.IMAGE});
-		final ArrayList<Item> items = new ArrayList<>();
-		final NativeAdAdapter adapter = new NativeAdAdapter(this, items);
+		ad = adService.getNativeAd("native.ad.item.video", 400, 50, 3, new String[]{IAdItem.VIDEO});
+		final ArrayList<Item> items = new ArrayList<Item>();
+		final NativeAdVideoAdapter adapter = new NativeAdVideoAdapter(this, items);
 		for (int i = 0; i < 50; i++){
 			items.add(new Item(Item.TYPE_PRODUCT, new Product("Product name " + i, Math.round(Math.random() * 100))));
 		}
@@ -46,16 +45,18 @@ public class NativeAdActivity extends AppCompatActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 									int position, long id) {
-				Toast.makeText(NativeAdActivity.this, "pos:" + position, Toast.LENGTH_LONG).show();
+				Toast.makeText(NativeAdVideoActivity.this, "pos:" + position, Toast.LENGTH_LONG).show();
 
 			}
 
 		});
+		ad.setAutoplayMode(true);
 		ad.setOnLoadLisenter(new ICallback() {
 
 			@Override
 			public void call(int resultCode) {
 				if (resultCode == IAd.OK) {
+					Toast.makeText(NativeAdVideoActivity.this, "ad counts:" + ad.getCount(), Toast.LENGTH_LONG).show();
 					for (int i = 0; i < ad.getCount(); i++) {
 						int index = (i + 1) * 5;
 						items.add(index, new Item(Item.TYPE_AD, ad.getAdItem(i)));
