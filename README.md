@@ -20,15 +20,9 @@ Add sdk jar file to the ***libs*** folder of your Android project. Make sure the
 ```
 And add necessary activities and service 
 ```xml
+
 <activity
-    android:name="com.reach.InterstitialAdActivity"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-    <intent-filter>
-        <category android:name="android.intent.category.DEFAULT" />
-    </intent-filter>
-</activity>
-<activity
-    android:name="com.reach.VideoAdActivity"
+    android:name="com.reach.PeerActivity"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
     <intent-filter>
         <category android:name="android.intent.category.DEFAULT" />
@@ -154,6 +148,11 @@ ad1.load();
 -keepclassmembers public class * extends com.reach.IService {
     public <init>(...);
 }
+
+-keepclassmembers public class * extends com.reach.IActivity {
+    public <init>(...);
+}
+
 -keep public class * extends com.reach.IService
 
 ```
