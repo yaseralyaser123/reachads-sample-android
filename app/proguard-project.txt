@@ -29,4 +29,9 @@
 -keepclassmembers public class * extends com.reach.IService {
     public <init>(...);
 }
+
+-keepclassmembers public class * extends com.reach.IActivity {
+    public <init>(...);
+}
+
 -keep public class * extends com.reach.IService

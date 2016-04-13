@@ -21,6 +21,6 @@ android {
 }
 
 dependencies {
-    compile files('libs/go2reach.ads_4.1.jar')
+    compile files('libs/go2reach.ads_4.2.1.jar')
     compile 'com.android.support:design:23.1.1'
 }
