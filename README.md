@@ -78,7 +78,7 @@ adTop.setReloadInterval(60); // make the banner auto reload every 60 seconds
 ### Interstitial Ad
 * Get the ad service instance
 ```java
-IAdService adService = Services.get(IAdService.class, context);
+IAdService adService = AdServiceManager.get(context);
 ```
 * Create an interstitial ad with a preferred unique placement name
 ```java
@@ -105,7 +105,7 @@ ad.popup();
 ### Native Ad
 * Get the ad service instance
 ```java
-IAdService adService = Services.get(IAdService.class, context);
+IAdService adService = AdServiceManager.get(context);
 ```
 * Create a native ad with a preferred unique placement name
 ```java
