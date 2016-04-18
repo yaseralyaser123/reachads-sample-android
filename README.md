@@ -1,5 +1,5 @@
 ###Latest SDK Version : 4.2.5
-[Download](app/libs/go2reach.ads_4.2.5.jar)
+[Download](https://raw.githubusercontent.com/gmobi/go2reach.sample.ads/master/app/libs/go2reach.ads_4.2.5.jar)
 ###Getting Started
 Add sdk jar file to the ***libs*** folder of your Android project. Make sure the following permissions are placed in your AndroidManifest.xml
 ```xml
