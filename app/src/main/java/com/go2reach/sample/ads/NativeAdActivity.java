@@ -16,7 +16,7 @@ import com.reach.IAdItem;
 import com.reach.IAdService;
 import com.reach.ICallback;
 import com.reach.INativeAd;
-import com.reach.Services;
+import com.reach.AdServiceManager;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class NativeAdActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_native_ad_item);
 		
-		adService = Services.get(IAdService.class, this);
+		adService = AdServiceManager.get(this);
 		
 		ad = adService.getNativeAd("native.ad.item", 400, 50, 3, new String[]{IAdItem.IMAGE});
 		final ArrayList<Item> items = new ArrayList<>();

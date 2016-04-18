@@ -11,11 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.go2reach.sample.R;
+import com.reach.AdServiceManager;
 import com.reach.IAdItem;
 import com.reach.IAdService;
 import com.reach.ICallback;
 import com.reach.IInterstitialAd;
-import com.reach.Services;
 
 
 public class InterstitialFragment extends Fragment {
@@ -31,7 +31,7 @@ public class InterstitialFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        adService = Services.get(IAdService.class, getActivity());
+        adService = AdServiceManager.get(getContext());
 
         LinearLayout btnDefault = (LinearLayout)view.findViewById(R.id.btnDefault);
         btnDefault.setOnClickListener(new View.OnClickListener() {

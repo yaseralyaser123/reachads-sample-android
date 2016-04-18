@@ -11,12 +11,12 @@ import android.widget.Toast;
 
 import com.go2reach.sample.R;
 import com.go2reach.sample.adapter.NativeAdVideoAdapter;
+import com.reach.AdServiceManager;
 import com.reach.IAd;
 import com.reach.IAdItem;
 import com.reach.IAdService;
 import com.reach.ICallback;
 import com.reach.INativeAd;
-import com.reach.Services;
 
 import java.util.ArrayList;
 
@@ -28,8 +28,8 @@ public class NativeAdVideoActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_native_ad_item);
-		
-		adService = Services.get(IAdService.class, this);
+
+		adService = AdServiceManager.get(this);
 		
 		ad = adService.getNativeAd("native.ad.item.video", 400, 50, 3, new String[]{IAdItem.VIDEO});
 		final ArrayList<Item> items = new ArrayList<Item>();

@@ -11,11 +11,11 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.go2reach.sample.R;
+import com.reach.AdServiceManager;
 import com.reach.IAdItem;
 import com.reach.IAdService;
 import com.reach.IBannerAd;
 import com.reach.ICallback;
-import com.reach.Services;
 
 
 public class BannerFragment extends Fragment {
@@ -30,7 +30,7 @@ public class BannerFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        IAdService adService = Services.get(IAdService.class, getActivity());
+        IAdService adService = AdServiceManager.get(getContext());
         IBannerAd adTop = adService.getBannerAd("banner.top", -1, 60, new String[]{IAdItem.IMAGE});
         adTop.setReloadInterval(60);
         FrameLayout flTop = (FrameLayout)view.findViewById(R.id.topbanner);
