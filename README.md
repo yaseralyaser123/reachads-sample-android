@@ -51,7 +51,7 @@ Register your application in Go2Reach backend and add the key as meta-data in  A
 ### Banner Ad
 * Get the ad service instance
 ```java
-IAdService adService = Services.get(IAdService.class, context);
+IAdService adService = AdServiceManager.get(context);
 ```
 * Create a banner ad with a preferred unique placement name
 ```java
