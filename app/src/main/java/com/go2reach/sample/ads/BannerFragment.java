@@ -1,8 +1,8 @@
 package com.go2reach.sample.ads;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +16,13 @@ import com.reach.IAdItem;
 import com.reach.IAdService;
 import com.reach.IBannerAd;
 import com.reach.ICallback;
-
+import com.reach.IServiceCallback;
 
 public class BannerFragment extends Fragment {
     IBannerAd adBottom;
     IBannerAd adCenter;
+    IAdService adService;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,9 +30,20 @@ public class BannerFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        IAdService adService = AdServiceManager.get(getContext());
+        AdServiceManager.get(getActivity(), new IServiceCallback<IAdService>(){
+
+            @Override
+            public void call(IAdService service) {
+                adService = service;
+                createAdViews(view);
+            }
+        });
+
+    }
+
+    void createAdViews(View view){
         IBannerAd adTop = adService.getBannerAd("banner.top", -1, 60, new String[]{IAdItem.IMAGE});
         adTop.setReloadInterval(60);
         FrameLayout flTop = (FrameLayout)view.findViewById(R.id.topbanner);

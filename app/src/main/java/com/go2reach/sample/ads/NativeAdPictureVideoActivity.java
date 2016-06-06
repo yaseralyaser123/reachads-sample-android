@@ -17,6 +17,7 @@ import com.reach.IAdItem;
 import com.reach.IAdService;
 import com.reach.ICallback;
 import com.reach.INativeAd;
+import com.reach.IServiceCallback;
 
 import java.util.ArrayList;
 
@@ -28,10 +29,8 @@ public class NativeAdPictureVideoActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_native_ad_pic);
-
-		adService = AdServiceManager.get(this);
 		
-		ad = adService.getNativeAd("native.ad.pic.video", 300, 100, 3, new String[]{IAdItem.VIDEO});
+
 		final ArrayList<Item> items = new ArrayList<Item>();
 		final NativeAdPictureVideoAdapter adapter = new NativeAdPictureVideoAdapter(this, items);
 		for (int i = 0; i < 50; i++){
@@ -50,23 +49,31 @@ public class NativeAdPictureVideoActivity extends AppCompatActivity {
 			}
 
 		});
-		ad.setAutoplayMode(true);
-		ad.setOnLoadLisenter(new ICallback() {
 
+		AdServiceManager.get(this, new IServiceCallback<IAdService>(){
 			@Override
-			public void call(int resultCode) {
-				if (resultCode == IAd.OK) {
-					Toast.makeText(NativeAdPictureVideoActivity.this, "ad counts:" + ad.getCount(), Toast.LENGTH_LONG).show();
-					for (int i = 0; i < ad.getCount(); i++) {
-						int index = (i + 1) * 5;
-						items.add(index, new Item(Item.TYPE_AD, ad.getAdItem(i)));
-					}
-					adapter.notifyDataSetChanged();
-				}
+			public void call(IAdService service) {
+				adService = service;
+				ad = adService.getNativeAd("native.ad.pic.video", 300, 100, 3, new String[]{IAdItem.VIDEO});
+				ad.setAutoplayMode(true);
+				ad.setOnLoadLisenter(new ICallback() {
 
+					@Override
+					public void call(int resultCode) {
+						if (resultCode == IAd.OK) {
+							Toast.makeText(NativeAdPictureVideoActivity.this, "ad counts:" + ad.getCount(), Toast.LENGTH_LONG).show();
+							for (int i = 0; i < ad.getCount(); i++) {
+								int index = (i + 1) * 5;
+								items.add(index, new Item(Item.TYPE_AD, ad.getAdItem(i)));
+							}
+							adapter.notifyDataSetChanged();
+						}
+
+					}
+				});
+				ad.load();
 			}
 		});
-		ad.load();
 	}
 	
 	@Override

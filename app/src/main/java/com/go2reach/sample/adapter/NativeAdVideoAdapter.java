@@ -54,8 +54,8 @@ public class NativeAdVideoAdapter extends BaseAdapter {
 			itemView.setBackgroundColor(position % 2 == 1 ? 0xFFEEEEEE : 0xFFFFFFFF); 
 		} else {
 			item.getAsAdItem().bind(itemView,
-					new String[]{IAdItem.TITLE, IAdItem.VIDEO, IAdItem.IMAGE},
-					new int[]{R.id.tvListItemTitle, R.id.vpListItemVideo, R.id.ivListItemImage}
+					new String[]{IAdItem.MEDIA_CONTAINER, IAdItem.TITLE},
+					new int[]{R.id.vpListItemVideo, R.id.tvListItemTitle}
 			);
 		}
 		return itemView;

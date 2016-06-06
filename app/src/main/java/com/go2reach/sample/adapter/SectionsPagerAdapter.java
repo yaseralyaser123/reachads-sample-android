@@ -1,9 +1,9 @@
 package com.go2reach.sample.adapter;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.support.v13.app.FragmentPagerAdapter;
 import com.go2reach.sample.ads.BannerFragment;
 import com.go2reach.sample.ads.InterstitialFragment;
 import com.go2reach.sample.ads.NativeAdFragment;

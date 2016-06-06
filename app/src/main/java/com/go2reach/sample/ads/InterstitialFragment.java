@@ -1,13 +1,12 @@
 package com.go2reach.sample.ads;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.go2reach.sample.R;
@@ -16,6 +15,7 @@ import com.reach.IAdItem;
 import com.reach.IAdService;
 import com.reach.ICallback;
 import com.reach.IInterstitialAd;
+import com.reach.IServiceCallback;
 
 
 public class InterstitialFragment extends Fragment {
@@ -25,20 +25,30 @@ public class InterstitialFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_interstitial,null);
+        return inflater.inflate(R.layout.activity_interstitial, null);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        adService = AdServiceManager.get(getContext());
+        AdServiceManager.get(getActivity(), new IServiceCallback<IAdService>(){
+            @Override
+            public void call(IAdService service) {
+                adService = service;
+                createAdViews(view);
+            }
+        });
 
+
+    }
+
+    void createAdViews(View view){
         LinearLayout btnDefault = (LinearLayout)view.findViewById(R.id.btnDefault);
         btnDefault.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                final IInterstitialAd ad = adService.getInterstitialAd("interstitial.default");
+                IInterstitialAd ad = adService.getInterstitialAd("interstitial.default");
                 ad.popup();
                 ad.setOnLoadLisenter(new ICallback() {
                     @Override
