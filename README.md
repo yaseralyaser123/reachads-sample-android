@@ -1,5 +1,5 @@
-### Latest SDK Version : 4.3.2
-[Download](https://raw.githubusercontent.com/gmobi/go2reach.sample.ads/master/app/libs/go2reach.ads_4.3.2.jar)
+### Latest SDK Version : 5.0.5
+[Download](https://raw.githubusercontent.com/gmobi/go2reach.sample.ads/master/app/libs/go2reach.lite_5.0.5.jar)
 ###Getting Started
 Add sdk jar file to the ***libs*** folder of your Android project. Make sure the following permissions are placed in your AndroidManifest.xml
 ```xml
@@ -53,7 +53,15 @@ Register your application in Go2Reach backend and add the key as meta-data in  A
 ### Banner Ad
 * Get the ad service instance
 ```java
-IAdService adService = AdServiceManager.get(context);
+AdServiceManager.get(this, new IServiceCallback<IAdService>(){
+
+    @Override
+    public void call(IAdService service) {
+        adService = service;
+        createAdViews();
+    }
+    
+});
 ```
 * Create a banner ad with a preferred unique placement name
 ```java
@@ -78,7 +86,15 @@ adTop.setReloadInterval(60); // make the banner auto reload every 60 seconds
 ### Interstitial Ad
 * Get the ad service instance
 ```java
-IAdService adService = AdServiceManager.get(context);
+AdServiceManager.get(this, new IServiceCallback<IAdService>(){
+
+    @Override
+    public void call(IAdService service) {
+        adService = service;
+        createAdViews();
+    }
+    
+});
 ```
 * Create an interstitial ad with a preferred unique placement name
 ```java
@@ -105,7 +121,15 @@ ad.popup();
 ### Native Ad
 * Get the ad service instance
 ```java
-IAdService adService = AdServiceManager.get(context);
+AdServiceManager.get(this, new IServiceCallback<IAdService>(){
+
+    @Override
+    public void call(IAdService service) {
+        adService = service;
+        createAdViews();
+    }
+    
+});
 ```
 * Create a native ad with a preferred unique placement name
 ```java
