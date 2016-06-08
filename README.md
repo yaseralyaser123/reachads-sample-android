@@ -22,14 +22,17 @@ Add sdk jar file to the ***libs*** folder of your Android project. Make sure the
 ```
 And add necessary activities and service 
 ```xml
-
 <activity
     android:name="com.reach.PeerActivity"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-    <intent-filter>
-        <category android:name="android.intent.category.DEFAULT" />
-    </intent-filter>
-</activity>
+    android:excludeFromRecents="true"
+    android:taskAffinity="reach.peer.default"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+<activity
+    android:name="com.reach.OverlayActivity"
+    android:excludeFromRecents="true"
+    android:taskAffinity="reach.peer.overlay"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 <service android:name="com.reach.ActionService" />
 
