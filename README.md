@@ -25,7 +25,6 @@ And add necessary activities and service
 <activity
     android:name="com.reach.PeerActivity"
     android:excludeFromRecents="true"
-    android:taskAffinity="reach.peer.default"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 <activity
