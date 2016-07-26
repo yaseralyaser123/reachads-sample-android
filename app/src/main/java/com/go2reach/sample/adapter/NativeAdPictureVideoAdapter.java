@@ -56,7 +56,7 @@ public class NativeAdPictureVideoAdapter extends BaseAdapter {
 		} else {
 			item.getAsAdItem().bind(itemView, 
 					new String[]{IAdItem.TITLE, IAdItem.MEDIA_CONTAINER},
-					new int[]{R.id.tvListItemTitle, R.id.vpListItemVideo}
+					new int[]{R.id.tvListItemTitle, R.id.flContainer}
 			);
 		}
 		return itemView;

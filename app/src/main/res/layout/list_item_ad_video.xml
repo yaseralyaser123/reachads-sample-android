@@ -5,24 +5,23 @@
     android:padding="10dp">
 
     <FrameLayout
-        android:id="@+id/vpListItemVideo"
+        android:id="@+id/flContainer"
         android:layout_width="match_parent"
         android:paddingBottom="5dp"
         android:layout_height="250dp"/>
-
 
     <TextView
         android:id="@+id/tvListItemTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/vpListItemVideo"
+        android:layout_below="@id/flContainer"
         android:text="TextView" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/vpListItemVideo"
+        android:layout_below="@id/flContainer"
         android:src="@drawable/ad" />
 
 </RelativeLayout>

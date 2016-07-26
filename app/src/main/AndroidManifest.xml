@@ -24,7 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ads.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -51,8 +51,11 @@
             android:noHistory="true" />
 
         <activity
+            android:name=".ads.NativeAdBeforeVideoActivity"
+            android:noHistory="true" />
             android:name="com.reach.PeerActivity"
             android:excludeFromRecents="true"
+            android:taskAffinity="reach.peer.default"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <activity

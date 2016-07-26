@@ -41,23 +41,6 @@ public class NativeAdFragment extends Fragment {
             }
         });
 
-        View btn3 = view.findViewById(R.id.native_item_video);
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().startActivity(new Intent(getActivity(), NativeAdVideoActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-            }
-        });
-
-        View btn4 = view.findViewById(R.id.native_pic_video);
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().startActivity(new Intent(getActivity(), NativeAdPictureVideoActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-            }
-        });
     }
 
 }

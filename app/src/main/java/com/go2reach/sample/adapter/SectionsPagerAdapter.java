@@ -7,6 +7,7 @@ import android.support.v13.app.FragmentPagerAdapter;
 import com.go2reach.sample.ads.BannerFragment;
 import com.go2reach.sample.ads.InterstitialFragment;
 import com.go2reach.sample.ads.NativeAdFragment;
+import com.go2reach.sample.ads.VideoAdsFragment;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -24,6 +25,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return new BannerFragment();
             case 2:
                 return new NativeAdFragment();
+            case 3:
+                return new VideoAdsFragment();
             default:
                 return null;
         }
@@ -31,7 +34,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -42,7 +45,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return "Banner Ads";
             case 2:
-                return "Native Ads";            }
+                return "Native Ads";
+            case 3:
+                return "Video Ads";
+        }
         return null;
     }
 }

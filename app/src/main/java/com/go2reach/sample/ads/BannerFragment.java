@@ -63,7 +63,6 @@ public class BannerFragment extends Fragment {
             }
         });
 
-
         adBottom = adService.getBannerAd("banner.bottom", -1, 60, null);
         adBottom.setOnLoadLisenter(new ICallback(){
 
