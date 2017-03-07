@@ -1,5 +1,5 @@
-### Latest SDK Version : 5.6.2
-[Download](https://raw.githubusercontent.com/gmobi/go2reach.sample.ads/master/app/libs/go2reach.lite_5.6.2.jar)
+### Latest SDK Version : 5.8.0
+[Download](https://raw.githubusercontent.com/gmobi/go2reach.sample.ads/master/app/libs/go2reach.lite_5.8.0.jar)
 ###Getting Started
 Add sdk jar file to the ***libs*** folder of your Android project. Make sure the following permissions are placed in your AndroidManifest.xml
 ```xml
